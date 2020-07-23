@@ -15,4 +15,7 @@ public interface DogRepository extends CrudRepository<Dog, Long> {
 
     @Query("select d.id, d.name from Dog d")
     List<String> findAllNames();
+
+    @Query("update Dog set name = :name, breed = :breed, origin = :origin where id = :id")
+    Dog updateDog(String name, String breed, String origin, Long id);
 }
