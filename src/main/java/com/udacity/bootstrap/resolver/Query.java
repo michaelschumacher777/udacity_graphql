@@ -26,5 +26,6 @@ public class Query implements GraphQLQueryResolver {
             return optionalDog.get();
         } else {
             throw new DogNotFoundException("Dog Not Found", id);
-        }    }
+        }
+    }
 }
