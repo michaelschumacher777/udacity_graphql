@@ -17,7 +17,15 @@ public class Query implements GraphQLQueryResolver {
     }
 
     public Iterable<Dog> findAllDogs() {
-        return dogRepository.findAll();
+        System.out.println(">>> findAllDogs");
+        Iterable<Dog> allDogs = dogRepository.findAll();
+        int count = 0;
+        for (Dog dog : allDogs) {
+            System.out.println("Dog name: " + dog.getName());
+            count++;
+        }
+        System.out.println("<<< findAllDogs["+count+"]");
+        return allDogs;
     }
 
     public Dog  findDogById(Long id) {
